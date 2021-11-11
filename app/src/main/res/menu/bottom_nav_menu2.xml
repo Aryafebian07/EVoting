@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_kandidat"
+        android:icon="@drawable/kandidat"
+        android:title="Kandidat" />
+
+    <item
+        android:id="@+id/navigation_vote"
+        android:icon="@drawable/vote"
+        android:title="vote" />
+
+    <item
+        android:id="@+id/navigation_statik"
+        android:icon="@drawable/statik"
+        android:title="Statistika" />
+
+</menu>
