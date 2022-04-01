@@ -98,7 +98,7 @@ public class KandidatFragment extends Fragment {
         kandidatAdapter = new KandidatAdapter(getContext(),semuaKandidatLists);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         rvKandidat.setLayoutManager(mLayoutManager);
-        getResultListPemilu(pemilu_id);
+        getResultListKandidat(pemilu_id);
         swpKandidat.setColorSchemeResources(R.color.fourth,R.color.primary);
         swpKandidat.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -107,7 +107,7 @@ public class KandidatFragment extends Fragment {
                     @Override
                     public void run() {
                         swpKandidat.setRefreshing(false);
-                        getResultListPemilu(pemilu_id);
+                        getResultListKandidat(pemilu_id);
                     }
                 },2000);
             }
@@ -115,7 +115,7 @@ public class KandidatFragment extends Fragment {
         return view;
     }
 
-    private void getResultListPemilu(int pemilu_id) {
+    private void getResultListKandidat(int pemilu_id) {
         loading = ProgressDialog.show(getActivity(),null,"Harap Tunggu..",true,false);
         Koneksi.getAPIService().semuakandidat(pemilu_id).enqueue(new Callback<ResponseKandidat>() {
             @Override

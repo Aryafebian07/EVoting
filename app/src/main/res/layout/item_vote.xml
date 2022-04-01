@@ -15,41 +15,63 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:gravity="center"
             android:padding="16dp">
+
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/vkandidat_image"
+                android:id="@+id/vkandidat_ketua_image"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
+                android:layout_alignParentStart="true"
                 android:layout_gravity="center"
+                app:civ_border_color="@color/white"
+                android:layout_centerVertical="true"
+                app:civ_border_width="3dp" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/vkandidat_wakil_image"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
                 app:civ_border_width="3dp"
                 app:civ_border_color="@color/white"
-                android:layout_alignParentEnd="true"/>
+                android:layout_gravity="center"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
             <RelativeLayout
+                android:id="@+id/ll1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toStartOf="@id/vkandidat_image"
-                android:layout_centerVertical="true">
+                android:layout_toEndOf="@+id/vkandidat_ketua_image"
+                android:layout_toStartOf="@id/vkandidat_wakil_image"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin">
                 <TextView
-                    android:id="@+id/vkandidat_nama"
+                    android:id="@+id/vkandidat_ketua_nama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:layout_centerHorizontal="true"
                     android:text="Kandidat Nama"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_alignParentStart="true"/>
+                <TextView
+                    android:id="@+id/vkandidat_wakil_nama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Kandidat Nama"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/vkandidat_ketua_nama"/>
                 <Button
                     android:id="@+id/btn_vote"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/vkandidat_nama"
+                    android:layout_below="@+id/vkandidat_wakil_nama"
                     android:background="@drawable/login_button"
                     android:ems="7"
                     app:backgroundTint="@color/third"
-
                     android:text="VOTE"/>
             </RelativeLayout>
         </RelativeLayout>

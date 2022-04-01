@@ -45,18 +45,20 @@ public class KandidatAdapter extends RecyclerView.Adapter<KandidatAdapter.Kandid
     public void onBindViewHolder(@NonNull KandidatHolder holder, int position) {
         final SemuaKandidat semuaKandidatItem = semuaKandidatLists.get(position);
 
-        holder.tvk_nama.setText(semuaKandidatItem.getNama());
-        Picasso.get().load(Koneksi.BASE_URL_API+"storage/images/profile_kandidat/"+semuaKandidatItem.getPath_image()).into(holder.civ_kandidat);
+        holder.tvk_nama_ketua.setText(semuaKandidatItem.getNama_ketua());
+        holder.tvk_nama_wakil.setText(semuaKandidatItem.getNama_wakil());
+        Picasso.get().load(Koneksi.BASE_URL_API+"storage/images/profile_kandidat/"+semuaKandidatItem.getPath_image_ketua()).into(holder.civ_kandidat_ketua);
+        Picasso.get().load(Koneksi.BASE_URL_API+"storage/images/profile_kandidat/"+semuaKandidatItem.getPath_image_wakil()).into(holder.civ_kandidat_wakil);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(mContext, KandidatActivity.class);
                 i.putExtra("kandidat_id", semuaKandidatItem.getId());
-                i.putExtra("kandidat_nama", semuaKandidatItem.getNama());
-                i.putExtra("kandidat_visi", semuaKandidatItem.getVisi());
-                i.putExtra("kandidat_misi", semuaKandidatItem.getMisi());
-                i.putExtra("kandidat_image", semuaKandidatItem.getPath_image());
+                i.putExtra("kandidat_nama_ketua", semuaKandidatItem.getNama_ketua());
+                i.putExtra("kandidat_nama_wakil", semuaKandidatItem.getNama_wakil());
+                i.putExtra("kandidat_image_ketua", semuaKandidatItem.getPath_image_ketua());
+                i.putExtra("kandidat_image_wakil", semuaKandidatItem.getPath_image_wakil());
                 i.putExtra("kandidat_nomor", semuaKandidatItem.getNomor());
                 mContext.startActivity(i);
             }
@@ -70,14 +72,17 @@ public class KandidatAdapter extends RecyclerView.Adapter<KandidatAdapter.Kandid
 
     public class KandidatHolder extends RecyclerView.ViewHolder {
 
-        public TextView tvk_nama;
-        CircleImageView civ_kandidat;
+        public TextView tvk_nama_ketua,tvk_nama_wakil;
+        CircleImageView civ_kandidat_ketua,civ_kandidat_wakil;;
 
         public KandidatHolder(@NonNull View itemView) {
             super(itemView);
 
-            tvk_nama = itemView.findViewById(R.id.kandidat_nama);
-            civ_kandidat = itemView.findViewById(R.id.kandidat_image);
+            tvk_nama_ketua = itemView.findViewById(R.id.kandidat_ketua_nama);
+            tvk_nama_wakil = itemView.findViewById(R.id.kandidat_wakil_nama);
+            civ_kandidat_ketua = itemView.findViewById(R.id.kandidat_ketua_image);
+            civ_kandidat_wakil = itemView.findViewById(R.id.kandidat_wakil_image);
+
         }
     }
 }

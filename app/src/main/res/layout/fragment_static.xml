@@ -8,14 +8,14 @@
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/vkandidat_swp"
+        android:id="@+id/skandidat_swp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <com.github.mikephil.charting.charts.BarChart
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/statikbar_kandidat"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/statikbar_kandidat"/>
+            android:layout_height="match_parent" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </FrameLayout>
